@@ -5,7 +5,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN apk add --no-cache --virtual .builder tar && \
     apk add --no-cache su-exec \
                        openjdk8-jre && \
-    mkdir /usr/share/elasticsearch/ && curl --location https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/5.0.0-alpha5/elasticsearch-5.0.0-alpha5.tar.gz \
+    mkdir /usr/share/elasticsearch/ && curl --location https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.0/elasticsearch-2.4.0.tar.gz \
     | tar --gzip --extract --file - --directory /usr/share/elasticsearch/ --strip-components 1 && \
     apk del --no-cache .builder && \
     chmod +x /usr/local/bin/docker-entrypoint.sh
